@@ -1,10 +1,15 @@
 package com.projetomiltek.miltek.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "despesa")
 public class Despesa {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int produtorId;
     private String categoria;

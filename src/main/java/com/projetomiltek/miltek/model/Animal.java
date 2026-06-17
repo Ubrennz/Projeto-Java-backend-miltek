@@ -1,10 +1,15 @@
 package com.projetomiltek.miltek.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "animal")
 public class Animal {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int produtorId;
     private String nome;

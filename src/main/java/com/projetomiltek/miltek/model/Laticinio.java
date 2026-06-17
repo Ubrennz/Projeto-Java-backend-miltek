@@ -1,9 +1,14 @@
 package com.projetomiltek.miltek.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "laticinio")
 public class Laticinio {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String cnpj;
