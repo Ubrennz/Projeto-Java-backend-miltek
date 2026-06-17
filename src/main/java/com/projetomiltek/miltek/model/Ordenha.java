@@ -1,0 +1,95 @@
+package com.projetomiltek.miltek.model;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class Ordenha {
+
+    private int id;
+    private int animalId;
+    private LocalDate data;
+    private String turno;
+    private double litros;
+    private String observacao;
+    private boolean sincronizado;
+    private LocalDateTime atualizadoEm;
+
+    public Ordenha() {
+    }
+
+    public Ordenha(int id, int animalId, LocalDate data, String turno, double litros,
+                    String observacao, boolean sincronizado, LocalDateTime atualizadoEm) {
+        this.id = id;
+        this.animalId = animalId;
+        this.data = data;
+        this.turno = turno;
+        this.litros = litros;
+        this.observacao = observacao;
+        this.sincronizado = sincronizado;
+        this.atualizadoEm = atualizadoEm;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAnimalId() {
+        return animalId;
+    }
+
+    public void setAnimalId(int animalId) {
+        this.animalId = animalId;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public double getLitros() {
+        return litros;
+    }
+
+    public void setLitros(double litros) {
+        this.litros = litros;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public boolean isSincronizado() {
+        return sincronizado;
+    }
+
+    public void setSincronizado(boolean sincronizado) {
+        this.sincronizado = sincronizado;
+    }
+
+    public LocalDateTime getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
+}
