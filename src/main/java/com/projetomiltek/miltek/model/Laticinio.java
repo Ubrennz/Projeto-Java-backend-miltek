@@ -1,8 +1,11 @@
 package com.projetomiltek.miltek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "laticinio")
@@ -21,12 +24,14 @@ public class Laticinio {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "laticinio")
+    private List<OfertaLeite> ofertaLeites = new ArrayList<>();
+
     public Laticinio() {
     }
 
-    public Laticinio(int id, String nome, String cnpj, String telefone, String endereco,
-                      double latitude, double longitude, double precoLitro, String status,
-                      boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Laticinio(int id, String nome, String cnpj, String telefone, String endereco, double latitude, double longitude, double precoLitro, String status, boolean sincronizado, LocalDateTime atualizadoEm, List<OfertaLeite> ofertaLeites) {
         this.id = id;
         this.nome = nome;
         this.cnpj = cnpj;
@@ -38,6 +43,7 @@ public class Laticinio {
         this.status = status;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.ofertaLeites = ofertaLeites;
     }
 
     public int getId() {
@@ -126,5 +132,9 @@ public class Laticinio {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public List<OfertaLeite> getOfertaLeites() {
+        return ofertaLeites;
     }
 }

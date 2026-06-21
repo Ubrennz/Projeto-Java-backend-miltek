@@ -19,11 +19,18 @@ public class Receita {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @ManyToOne
+    @JoinColumn(name = "produtor_id")
+    private Produtor produtor;
+
+    @ManyToOne
+    @JoinColumn(name = "oferta_leite_id")
+    private OfertaLeite ofertaLeite;
+
     public Receita() {
     }
 
-    public Receita(int id, int produtorId, Integer ofertaId, double valor, LocalDate data,
-                    String descricao, boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Receita(int id, int produtorId, Integer ofertaId, double valor, LocalDate data, String descricao, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor, OfertaLeite ofertaLeite) {
         this.id = id;
         this.produtorId = produtorId;
         this.ofertaId = ofertaId;
@@ -32,6 +39,8 @@ public class Receita {
         this.descricao = descricao;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.produtor = produtor;
+        this.ofertaLeite = ofertaLeite;
     }
 
     public int getId() {
@@ -96,5 +105,21 @@ public class Receita {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public Produtor getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(Produtor produtor) {
+        this.produtor = produtor;
+    }
+
+    public OfertaLeite getOfertaLeite() {
+        return ofertaLeite;
+    }
+
+    public void setOfertaLeite(OfertaLeite ofertaLeite) {
+        this.ofertaLeite = ofertaLeite;
     }
 }

@@ -1,9 +1,12 @@
 package com.projetomiltek.miltek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "oferta_leite")
@@ -20,12 +23,22 @@ public class OfertaLeite {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "oferta_leite")
+    private List<Receita> receitas = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "produtor_id")
+    private Produtor produtor;
+
+    @ManyToOne
+    @JoinColumn(name = "laticinio_id")
+    private Laticinio laticinio;
+
     public OfertaLeite() {
     }
 
-    public OfertaLeite(int id, int produtorId, int laticinioId, LocalDate dataOferta,
-                        double volumeLitros, double precoNegociado, String status,
-                        boolean sincronizado, LocalDateTime atualizadoEm) {
+    public OfertaLeite(int id, int produtorId, int laticinioId, LocalDate dataOferta, double volumeLitros, double precoNegociado, String status, boolean sincronizado, LocalDateTime atualizadoEm, List<Receita> receitas, Produtor produtor, Laticinio laticinio) {
         this.id = id;
         this.produtorId = produtorId;
         this.laticinioId = laticinioId;
@@ -35,6 +48,9 @@ public class OfertaLeite {
         this.status = status;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.receitas = receitas;
+        this.produtor = produtor;
+        this.laticinio = laticinio;
     }
 
     public int getId() {
@@ -107,5 +123,25 @@ public class OfertaLeite {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public List<Receita> getReceitas() {
+        return receitas;
+    }
+
+    public Produtor getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(Produtor produtor) {
+        this.produtor = produtor;
+    }
+
+    public Laticinio getLaticinio() {
+        return laticinio;
+    }
+
+    public void setLaticinio(Laticinio laticinio) {
+        this.laticinio = laticinio;
     }
 }

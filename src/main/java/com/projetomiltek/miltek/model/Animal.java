@@ -1,9 +1,12 @@
 package com.projetomiltek.miltek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "animal")
@@ -21,12 +24,22 @@ public class Animal {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "animal")
+    private List<Ordenha> ordenhas = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "animal")
+    private List<EventoSanitario> eventoSanitarios = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "produtor_id")
+    private Produtor produtor;
+
     public Animal() {
     }
 
-    public Animal(int id, int produtorId, String nome, String raca, String sexo,
-                   LocalDate dataNascimento, String status, byte[] foto,
-                   boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Animal(int id, int produtorId, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, List<Ordenha> ordenhas, List<EventoSanitario> eventoSanitarios, Produtor produtor) {
         this.id = id;
         this.produtorId = produtorId;
         this.nome = nome;
@@ -37,6 +50,9 @@ public class Animal {
         this.foto = foto;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.ordenhas = ordenhas;
+        this.eventoSanitarios = eventoSanitarios;
+        this.produtor = produtor;
     }
 
     public int getId() {
@@ -117,5 +133,13 @@ public class Animal {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public List<Ordenha> getOrdenhas() {
+        return ordenhas;
+    }
+
+    public List<EventoSanitario> getEventoSanitarios() {
+        return eventoSanitarios;
     }
 }

@@ -19,11 +19,14 @@ public class Ordenha {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @ManyToOne
+    @JoinColumn(name = "animal_id")
+    private Animal animal;
+
     public Ordenha() {
     }
 
-    public Ordenha(int id, int animalId, LocalDate data, String turno, double litros,
-                    String observacao, boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Ordenha(int id, int animalId, LocalDate data, String turno, double litros, String observacao, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
         this.id = id;
         this.animalId = animalId;
         this.data = data;
@@ -32,6 +35,7 @@ public class Ordenha {
         this.observacao = observacao;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.animal = animal;
     }
 
     public int getId() {
@@ -96,5 +100,13 @@ public class Ordenha {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 }

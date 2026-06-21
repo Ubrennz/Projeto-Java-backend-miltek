@@ -1,9 +1,12 @@
 package com.projetomiltek.miltek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "produtor")
@@ -22,12 +25,26 @@ public class Produtor {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "produtor")
+    private List<Animal> animais = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "produtor")
+    private List<OfertaLeite> ofertaLeites = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "produtor")
+    private List<Despesa> despesas = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "produtor")
+    private List<Receita> receitas = new ArrayList<>();
+
     public Produtor() {
     }
 
-    public Produtor(int id, String nome, String cpf, String telefone, String endereco,
-                     double latitude, double longitude, String status, LocalDate criadoEm,
-                     boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Produtor(int id, String nome, String cpf, String telefone, String endereco, double latitude, double longitude, String status, LocalDate criadoEm, boolean sincronizado, LocalDateTime atualizadoEm, List<Animal> animais, List<OfertaLeite> ofertaLeites, List<Despesa> despesas, List<Receita> receitas) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -39,6 +56,10 @@ public class Produtor {
         this.criadoEm = criadoEm;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.animais = animais;
+        this.ofertaLeites = ofertaLeites;
+        this.despesas = despesas;
+        this.receitas = receitas;
     }
 
     public int getId() {
@@ -127,5 +148,21 @@ public class Produtor {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public List<Animal> getAnimais() {
+        return animais;
+    }
+
+    public List<OfertaLeite> getOfertaLeites() {
+        return ofertaLeites;
+    }
+
+    public List<Despesa> getDespesas() {
+        return despesas;
+    }
+
+    public List<Receita> getReceitas() {
+        return receitas;
     }
 }

@@ -20,12 +20,14 @@ public class EventoSanitario {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @ManyToOne
+    @JoinColumn(name = "animal_id")
+    private Animal animal;
+
     public EventoSanitario() {
     }
 
-    public EventoSanitario(int id, int animalId, String tipo, String descricao,
-                            LocalDate dataEvento, LocalDate dataPrevista, String status,
-                            boolean sincronizado, LocalDateTime atualizadoEm) {
+    public EventoSanitario(int id, int animalId, String tipo, String descricao, LocalDate dataEvento, LocalDate dataPrevista, String status, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
         this.id = id;
         this.animalId = animalId;
         this.tipo = tipo;
@@ -35,6 +37,7 @@ public class EventoSanitario {
         this.status = status;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.animal = animal;
     }
 
     public int getId() {
@@ -107,5 +110,13 @@ public class EventoSanitario {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 }

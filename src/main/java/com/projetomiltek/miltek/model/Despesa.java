@@ -1,6 +1,7 @@
 package com.projetomiltek.miltek.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,11 +20,14 @@ public class Despesa {
     private boolean sincronizado;
     private LocalDateTime atualizadoEm;
 
+    @ManyToOne
+    @JoinColumn(name = "produtor_id")
+    private Produtor produtor;
+
     public Despesa() {
     }
 
-    public Despesa(int id, int produtorId, String categoria, String descricao, double valor,
-                    LocalDate data, boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Despesa(int id, int produtorId, String categoria, String descricao, double valor, LocalDate data, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
         this.id = id;
         this.produtorId = produtorId;
         this.categoria = categoria;
@@ -32,6 +36,7 @@ public class Despesa {
         this.data = data;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
+        this.produtor = produtor;
     }
 
     public int getId() {
@@ -96,5 +101,13 @@ public class Despesa {
 
     public void setAtualizadoEm(LocalDateTime atualizadoEm) {
         this.atualizadoEm = atualizadoEm;
+    }
+
+    public Produtor getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(Produtor produtor) {
+        this.produtor = produtor;
     }
 }
