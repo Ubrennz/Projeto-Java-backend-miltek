@@ -1,9 +1,14 @@
 package com.projetomiltek.miltek.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "usuario")
 public class Usuario {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int produtorId;
     private String nome;
