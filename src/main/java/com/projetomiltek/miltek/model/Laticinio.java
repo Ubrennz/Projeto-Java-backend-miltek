@@ -31,7 +31,7 @@ public class Laticinio {
     public Laticinio() {
     }
 
-    public Laticinio(int id, String nome, String cnpj, String telefone, String endereco, double latitude, double longitude, double precoLitro, String status, boolean sincronizado, LocalDateTime atualizadoEm, List<OfertaLeite> ofertaLeites) {
+    public Laticinio(int id, String nome, String cnpj, String telefone, String endereco, double latitude, double longitude, double precoLitro, String status, boolean sincronizado, LocalDateTime atualizadoEm) {
         this.id = id;
         this.nome = nome;
         this.cnpj = cnpj;
@@ -43,7 +43,6 @@ public class Laticinio {
         this.status = status;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
-        this.ofertaLeites = ofertaLeites;
     }
 
     public int getId() {

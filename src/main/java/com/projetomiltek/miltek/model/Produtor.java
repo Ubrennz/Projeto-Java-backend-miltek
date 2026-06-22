@@ -44,7 +44,7 @@ public class Produtor {
     public Produtor() {
     }
 
-    public Produtor(int id, String nome, String cpf, String telefone, String endereco, double latitude, double longitude, String status, LocalDate criadoEm, boolean sincronizado, LocalDateTime atualizadoEm, List<Animal> animais, List<OfertaLeite> ofertaLeites, List<Despesa> despesas, List<Receita> receitas) {
+    public Produtor(int id, String nome, String cpf, String telefone, String endereco, double latitude, double longitude, String status, LocalDate criadoEm, boolean sincronizado, LocalDateTime atualizadoEm) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -56,10 +56,6 @@ public class Produtor {
         this.criadoEm = criadoEm;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
-        this.animais = animais;
-        this.ofertaLeites = ofertaLeites;
-        this.despesas = despesas;
-        this.receitas = receitas;
     }
 
     public int getId() {

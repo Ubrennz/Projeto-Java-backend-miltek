@@ -38,7 +38,7 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(int id, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, List<Ordenha> ordenhas, List<EventoSanitario> eventoSanitarios, Produtor produtor) {
+    public Animal(int id, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
@@ -48,8 +48,6 @@ public class Animal {
         this.foto = foto;
         this.sincronizado = sincronizado;
         this.atualizadoEm = atualizadoEm;
-        this.ordenhas = ordenhas;
-        this.eventoSanitarios = eventoSanitarios;
         this.produtor = produtor;
     }
 
