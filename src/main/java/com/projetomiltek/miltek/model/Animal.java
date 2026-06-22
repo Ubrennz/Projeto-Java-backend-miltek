@@ -14,7 +14,6 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int produtorId;
     private String nome;
     private String raca;
     private String sexo;
@@ -39,9 +38,8 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(int id, int produtorId, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, List<Ordenha> ordenhas, List<EventoSanitario> eventoSanitarios, Produtor produtor) {
+    public Animal(int id, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, List<Ordenha> ordenhas, List<EventoSanitario> eventoSanitarios, Produtor produtor) {
         this.id = id;
-        this.produtorId = produtorId;
         this.nome = nome;
         this.raca = raca;
         this.sexo = sexo;
@@ -61,14 +59,6 @@ public class Animal {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProdutorId() {
-        return produtorId;
-    }
-
-    public void setProdutorId(int produtorId) {
-        this.produtorId = produtorId;
     }
 
     public String getNome() {

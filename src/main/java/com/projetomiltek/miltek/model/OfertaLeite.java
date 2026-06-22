@@ -14,8 +14,6 @@ public class OfertaLeite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int produtorId;
-    private int laticinioId;
     private LocalDate dataOferta;
     private double volumeLitros;
     private double precoNegociado;
@@ -24,7 +22,7 @@ public class OfertaLeite {
     private LocalDateTime atualizadoEm;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "oferta_leite")
+    @OneToMany(mappedBy = "ofertaLeite")
     private List<Receita> receitas = new ArrayList<>();
 
     @ManyToOne
@@ -38,10 +36,8 @@ public class OfertaLeite {
     public OfertaLeite() {
     }
 
-    public OfertaLeite(int id, int produtorId, int laticinioId, LocalDate dataOferta, double volumeLitros, double precoNegociado, String status, boolean sincronizado, LocalDateTime atualizadoEm, List<Receita> receitas, Produtor produtor, Laticinio laticinio) {
+    public OfertaLeite(int id, LocalDate dataOferta, double volumeLitros, double precoNegociado, String status, boolean sincronizado, LocalDateTime atualizadoEm, List<Receita> receitas, Produtor produtor, Laticinio laticinio) {
         this.id = id;
-        this.produtorId = produtorId;
-        this.laticinioId = laticinioId;
         this.dataOferta = dataOferta;
         this.volumeLitros = volumeLitros;
         this.precoNegociado = precoNegociado;
@@ -59,22 +55,6 @@ public class OfertaLeite {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProdutorId() {
-        return produtorId;
-    }
-
-    public void setProdutorId(int produtorId) {
-        this.produtorId = produtorId;
-    }
-
-    public int getLaticinioId() {
-        return laticinioId;
-    }
-
-    public void setLaticinioId(int laticinioId) {
-        this.laticinioId = laticinioId;
     }
 
     public LocalDate getDataOferta() {

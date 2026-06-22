@@ -1,7 +1,6 @@
 package com.projetomiltek.miltek.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,7 +11,6 @@ public class Despesa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int produtorId;
     private String categoria;
     private String descricao;
     private double valor;
@@ -27,9 +25,8 @@ public class Despesa {
     public Despesa() {
     }
 
-    public Despesa(int id, int produtorId, String categoria, String descricao, double valor, LocalDate data, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
+    public Despesa(int id, String categoria, String descricao, double valor, LocalDate data, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
         this.id = id;
-        this.produtorId = produtorId;
         this.categoria = categoria;
         this.descricao = descricao;
         this.valor = valor;
@@ -45,14 +42,6 @@ public class Despesa {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProdutorId() {
-        return produtorId;
-    }
-
-    public void setProdutorId(int produtorId) {
-        this.produtorId = produtorId;
     }
 
     public String getCategoria() {

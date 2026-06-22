@@ -11,7 +11,6 @@ public class EventoSanitario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int animalId;
     private String tipo;
     private String descricao;
     private LocalDate dataEvento;
@@ -27,9 +26,8 @@ public class EventoSanitario {
     public EventoSanitario() {
     }
 
-    public EventoSanitario(int id, int animalId, String tipo, String descricao, LocalDate dataEvento, LocalDate dataPrevista, String status, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
+    public EventoSanitario(int id, String tipo, String descricao, LocalDate dataEvento, LocalDate dataPrevista, String status, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
         this.id = id;
-        this.animalId = animalId;
         this.tipo = tipo;
         this.descricao = descricao;
         this.dataEvento = dataEvento;
@@ -46,14 +44,6 @@ public class EventoSanitario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getAnimalId() {
-        return animalId;
-    }
-
-    public void setAnimalId(int animalId) {
-        this.animalId = animalId;
     }
 
     public String getTipo() {

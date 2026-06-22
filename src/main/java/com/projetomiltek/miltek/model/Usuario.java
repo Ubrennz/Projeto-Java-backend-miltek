@@ -10,7 +10,6 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int produtorId;
     private String nome;
     private String login;
     private String senha;
@@ -21,10 +20,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, int produtorId, String nome, String login, String senha,
-                    String perfil, boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Usuario(int id, String nome, String login, String senha, String perfil, boolean sincronizado, LocalDateTime atualizadoEm) {
         this.id = id;
-        this.produtorId = produtorId;
         this.nome = nome;
         this.login = login;
         this.senha = senha;
@@ -39,14 +36,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProdutorId() {
-        return produtorId;
-    }
-
-    public void setProdutorId(int produtorId) {
-        this.produtorId = produtorId;
     }
 
     public String getNome() {

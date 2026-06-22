@@ -11,7 +11,6 @@ public class Ordenha {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int animalId;
     private LocalDate data;
     private String turno;
     private double litros;
@@ -26,9 +25,8 @@ public class Ordenha {
     public Ordenha() {
     }
 
-    public Ordenha(int id, int animalId, LocalDate data, String turno, double litros, String observacao, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
+    public Ordenha(int id, LocalDate data, String turno, double litros, String observacao, boolean sincronizado, LocalDateTime atualizadoEm, Animal animal) {
         this.id = id;
-        this.animalId = animalId;
         this.data = data;
         this.turno = turno;
         this.litros = litros;
@@ -44,14 +42,6 @@ public class Ordenha {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getAnimalId() {
-        return animalId;
-    }
-
-    public void setAnimalId(int animalId) {
-        this.animalId = animalId;
     }
 
     public LocalDate getData() {

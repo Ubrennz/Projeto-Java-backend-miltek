@@ -11,8 +11,6 @@ public class Receita {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int produtorId;
-    private Integer ofertaId;
     private double valor;
     private LocalDate data;
     private String descricao;
@@ -30,10 +28,8 @@ public class Receita {
     public Receita() {
     }
 
-    public Receita(int id, int produtorId, Integer ofertaId, double valor, LocalDate data, String descricao, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor, OfertaLeite ofertaLeite) {
+    public Receita(int id, double valor, LocalDate data, String descricao, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor, OfertaLeite ofertaLeite) {
         this.id = id;
-        this.produtorId = produtorId;
-        this.ofertaId = ofertaId;
         this.valor = valor;
         this.data = data;
         this.descricao = descricao;
@@ -49,22 +45,6 @@ public class Receita {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProdutorId() {
-        return produtorId;
-    }
-
-    public void setProdutorId(int produtorId) {
-        this.produtorId = produtorId;
-    }
-
-    public Integer getOfertaId() {
-        return ofertaId;
-    }
-
-    public void setOfertaId(Integer ofertaId) {
-        this.ofertaId = ofertaId;
     }
 
     public double getValor() {
