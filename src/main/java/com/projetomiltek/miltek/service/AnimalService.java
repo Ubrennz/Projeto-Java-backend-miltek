@@ -21,4 +21,21 @@ public class AnimalService {
     public List<Animal> findAll() {
         return animalRepository.findAll();
     }
+
+    public void updateData(Animal entity, Animal animal) {
+        entity.setStatus(animal.getStatus());
+        entity.setSincronizado(animal.isSincronizado());
+        entity.setAtualizadoEm(animal.getAtualizadoEm());
+    }
+
+    public Animal update(Long id, Animal animal) {
+        Animal entity = animalRepository.getReferenceById(id);
+        updateData(entity, animal);
+        return animalRepository.save(entity);
+    }
+
+    public void delete(Long id) {
+        animalRepository.deleteById(id);
+    }
+
 }
