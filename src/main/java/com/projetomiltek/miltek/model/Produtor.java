@@ -13,13 +13,13 @@ import java.util.List;
 public class Produtor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String nome;
     private String cpf;
     private String telefone;
     private String endereco;
-    private double latitude;
-    private double longitude;
+    private Double latitude;
+    private Double longitude;
     private String status;
     private LocalDate criadoEm;
     private boolean sincronizado;
@@ -44,7 +44,7 @@ public class Produtor {
     public Produtor() {
     }
 
-    public Produtor(int id, String nome, String cpf, String telefone, String endereco, double latitude, double longitude, String status, LocalDate criadoEm, boolean sincronizado, LocalDateTime atualizadoEm) {
+    public Produtor(Long id, String nome, String cpf, String telefone, String endereco, double latitude, double longitude, String status, LocalDate criadoEm, boolean sincronizado, LocalDateTime atualizadoEm) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -58,11 +58,11 @@ public class Produtor {
         this.atualizadoEm = atualizadoEm;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -98,19 +98,19 @@ public class Produtor {
         this.endereco = endereco;
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

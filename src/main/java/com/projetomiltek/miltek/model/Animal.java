@@ -13,7 +13,7 @@ import java.util.List;
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String nome;
     private String raca;
     private String sexo;
@@ -38,7 +38,7 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(int id, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
+    public Animal(Long id, String nome, String raca, String sexo, LocalDate dataNascimento, String status, byte[] foto, boolean sincronizado, LocalDateTime atualizadoEm, Produtor produtor) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
@@ -51,11 +51,11 @@ public class Animal {
         this.produtor = produtor;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -129,5 +129,13 @@ public class Animal {
 
     public List<EventoSanitario> getEventoSanitarios() {
         return eventoSanitarios;
+    }
+
+    public Produtor getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(Produtor produtor) {
+        this.produtor = produtor;
     }
 }
