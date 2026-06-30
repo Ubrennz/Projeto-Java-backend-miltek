@@ -13,6 +13,10 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
+    public Animal insert(Animal animal) {
+        return animalRepository.save(animal);
+    }
+
     public Animal findById(Long id) {
         Optional<Animal> animal = animalRepository.findById(id);
         return animal.get();
