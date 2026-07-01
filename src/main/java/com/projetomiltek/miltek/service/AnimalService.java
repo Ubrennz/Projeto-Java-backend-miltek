@@ -2,7 +2,6 @@ package com.projetomiltek.miltek.service;
 
 import com.projetomiltek.miltek.model.Animal;
 import com.projetomiltek.miltek.repositories.AnimalRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +9,11 @@ import java.util.Optional;
 
 @Service
 public class AnimalService {
-    @Autowired
-    private AnimalRepository animalRepository;
+    private final AnimalRepository animalRepository;
+
+    public AnimalService(AnimalRepository animalRepository) {
+        this.animalRepository = animalRepository;
+    }
 
     public Animal insert(Animal animal) {
         return animalRepository.save(animal);

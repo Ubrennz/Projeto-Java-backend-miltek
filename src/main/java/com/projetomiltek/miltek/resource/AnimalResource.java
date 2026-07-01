@@ -2,7 +2,6 @@ package com.projetomiltek.miltek.resource;
 
 import com.projetomiltek.miltek.model.Animal;
 import com.projetomiltek.miltek.service.AnimalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/animais")
 public class AnimalResource {
-    @Autowired
-    private AnimalService animalService;
+
+    private final AnimalService animalService;
+
+    public AnimalResource(AnimalService animalService) {
+        this.animalService = animalService;
+    }
 
     @PostMapping
     public ResponseEntity<Animal> insert(@RequestBody Animal animal) {
