@@ -25,4 +25,23 @@ public class AnimalResource {
         List<Animal> animais = animalService.findAll();
         return ResponseEntity.ok().body(animais);
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Animal> findById(@PathVariable Long id) {
+        Animal animal = animalService.findById(id);
+        return ResponseEntity.ok().body(animal);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Animal> update(@PathVariable Long id, @RequestBody Animal animal) {
+        animal = animalService.update(id, animal);
+        return ResponseEntity.ok().body(animal);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        animalService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
